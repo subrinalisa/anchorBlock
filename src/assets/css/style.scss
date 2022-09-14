@@ -1,0 +1,238 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/*--------------------------------------------------------------------
+Global
+---------------------------------------------------------------------*/
+$text-color: #000;
+$blue-color: #246CD9;
+$navy-blue-color: #171A29;
+$light-blue-color: #E4EFFF;
+$gray-color: #989898;
+$light-gray-color: #EEF0F3;
+
+@mixin fonts($size, $weight, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $blue-color;
+    border-radius: 8px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    @include fonts(14px, 400, $text-color);
+    background: #F5F5F5;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure {
+    margin: 0;
+}
+
+small {
+    font-size: 12px;
+}
+
+a,
+a:hover {
+    color: $blue-color;
+    text-decoration: none;
+}
+
+.btn {
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:focus,
+.navbar-toggler:focus,
+.form-control:focus,
+.form-select:focus,
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+/*--------------------------------------------------------------------
+Header
+---------------------------------------------------------------------*/
+.header {
+    text-align: center;
+    padding: 103px 0;
+    background: $navy-blue-color;
+
+    p {
+        @include fonts(36px, 700, #fff);
+    }
+}
+
+.main {
+    margin: 100px 0;
+
+    .card {
+        border-radius: 20px;
+        overflow: hidden;
+
+        .card-header {
+            padding: 25px 50px;
+            background: #FFFFFF;
+
+            .count {
+                @include fonts(30px, 700, $gray-color);
+                padding-right: 20px;
+                vertical-align: middle;
+            }
+
+            .text {
+                @include fonts(14px, 700, $text-color);
+            }
+
+            .nav {
+                border-bottom: none;
+                justify-content: center;
+            }
+
+            .nav-link {
+                padding: 8px 30px;
+                border: 1px solid #d5d5d5;
+                border-right: none;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .nav-link::before {
+                content: "";
+                border-bottom: 17px solid transparent;
+                border-left: 17px solid #fff;
+                border-top: 17px solid transparent;
+                position: absolute;
+                right: -15px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 2;
+                transition: all 0.3s ease;
+            }
+
+            .nav-link::after {
+                content: "";
+                border-left: 17px solid #d5d5d5;
+                border-top: 17px solid transparent;
+                border-bottom: 17px solid transparent;
+                position: absolute;
+                top: 50%;
+                right: -17px;
+                transform: translateY(-50%);
+                z-index: 1;
+                transition: all 0.3s ease;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                isolation: unset;
+                background: $light-gray-color;
+            }
+
+            .nav-link:hover::before,
+            .nav-link.active::before {
+                border-left-color: $light-gray-color;
+            }
+
+            .nav-item:last-child .nav-link {
+                border-right: 1px solid #d5d5d5;
+            }
+
+            .nav-item:last-child .nav-link::before,
+            .nav-item:last-child .nav-link::after {
+                display: none;
+            }
+        }
+
+        .card-body {
+            padding: 40px 50px;
+
+            .single_question {
+                margin-bottom: 25px;
+
+                h2 {
+                    @include fonts(18px, 600, $text-color);
+                    margin-bottom: 16px;
+                }
+            }
+        }
+
+        .confirmation {
+            text-align: center;
+
+            p {
+                @include fonts(14px, 600, $text-color);
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+.btn-gray {
+    @include fonts(14px, 400, $text-color);
+    background: #EEF0F3;
+    border: 1px solid #E1E4EA;
+    border-radius: 5px;
+}
+
+.btn-gray:hover,
+.btn-primary:hover {
+    color: $text-color;
+    background: $light-blue-color;
+    border-color: $blue-color;
+}
+
+.btn-primary {
+    @include fonts(14px, 400, #fff);
+    background: $blue-color;
+    border: 1px solid $blue-color;
+    border-radius: 5px;
+}
+
+.control_btn {
+    min-width: 120px;
+}
